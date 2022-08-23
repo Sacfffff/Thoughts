@@ -7,23 +7,61 @@
 
 import UIKit
 
+enum TabBarViewControllers {
+    case main
+    case profile
+    
+    var title : String {
+        switch self {
+        case .main:
+           return "Home"
+        case .profile:
+           return "Profile"
+        }
+    }
+    
+    var image : UIImage? {
+        switch self {
+        case .main:
+            return UIImage(systemName: "house")
+        case .profile:
+            return UIImage(systemName: "person.circle")
+        }
+    }
+    
+   static var getAll : [TabBarViewControllers] {
+        return [.main, .profile]
+    }
+}
+
 class TabBarViewController: UITabBarController {
+    
+    private var controllers : [UIViewController] {
+        return [MainViewController(), ProfileViewController()]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpControllers()
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setUpControllers(){
+        let tabControllers = TabBarViewControllers.getAll
+        var navigationControllers : [UINavigationController] = []
+        
+        for (index, controller) in  controllers.enumerated(){
+            controller.navigationItem.largeTitleDisplayMode = .always
+            let navigationController = UINavigationController(rootViewController: controller)
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.tabBarItem = UITabBarItem(title: tabControllers[index].title, image: tabControllers[index].image, tag: index)
+            navigationControllers.append(navigationController)
+        }
+        
+        setViewControllers(navigationControllers, animated: true)
     }
-    */
 
 }
