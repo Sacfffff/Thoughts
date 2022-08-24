@@ -36,9 +36,7 @@ enum TabBarViewControllers {
 
 class TabBarViewController: UITabBarController {
     
-    private var controllers : [UIViewController] {
-        return [MainViewController(), ProfileViewController()]
-    }
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +50,7 @@ class TabBarViewController: UITabBarController {
     private func setUpControllers(){
         let tabControllers = TabBarViewControllers.getAll
         var navigationControllers : [UINavigationController] = []
+        let controllers : [UIViewController] = [MainViewController(), ProfileViewController()]
         
         for (index, controller) in  controllers.enumerated(){
             controller.navigationItem.largeTitleDisplayMode = .always
