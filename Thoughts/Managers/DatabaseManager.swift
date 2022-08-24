@@ -16,9 +16,9 @@ final class DatabaseManager {
     
     private init(){}
     
-    func insertBlogPost(
-        with post: String,
-        user: String,
+    func insert(
+        blodPost: BlogPost,// Сохранять в отдельном классе и хоанить сдеть объект этого кдасса и просто вызывать методы
+        user: UserObject,
         completion: @escaping (Bool) -> Void
     ) {
         
@@ -26,23 +26,20 @@ final class DatabaseManager {
     
     
     func getAllPosts(
-        with post: String,
-        user: String,
-        completion: @escaping ([String]) -> Void
+        completion: @escaping ([BlogPost]) -> Void
     ) {
         
     }
     
-    func getPostsForUser(
-        with post: String,
-        user: String,
-        completion: @escaping ([String]) -> Void
+    func getPosts(
+        from user: UserObject,
+        completion: @escaping ([BlogPost]) -> Void
     ) {
         
     }
     
-    func insertUser(
-        user: String,
+    func insert(
+        user: UserObject,
         completion: @escaping (Bool) -> Void
     ) {
         

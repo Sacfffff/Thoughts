@@ -14,7 +14,7 @@ class ProfileViewController: UIViewController {
 
         title = "Profile"
         view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: <#T##String#>), style: .done, target: self, action: #selector(sighOutDidTap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sighOutDidTap))
        
         
     }
