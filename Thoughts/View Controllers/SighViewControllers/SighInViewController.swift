@@ -13,6 +13,7 @@ class SighInViewController: UIViewController {
         super.viewDidLoad()
 
        setUpView()
+        checkIsPremium()
     }
     
     private func setUpView(){
@@ -23,5 +24,14 @@ class SighInViewController: UIViewController {
     }
 
   
+    //off to view model
+    
+    private func checkIsPremium() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            if !IAPManager.shared.isPremium() {
+                self.present(UINavigationController(rootViewController: PayWallViewController()), animated: true)
+            }
+        }
+    }
 
 }

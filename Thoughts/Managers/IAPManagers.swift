@@ -12,10 +12,13 @@ final class IAPManager {
     
     static let shared = IAPManager()
     
+    //revenue code
+    //jhbhgcghct
+    
     private init() {}
     
-    func isPremium() {
-        
+    func isPremium() -> Bool {
+        return false 
     }
     
     func subscribe(){

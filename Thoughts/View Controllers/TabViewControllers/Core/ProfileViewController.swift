@@ -12,14 +12,17 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Profile"
-        view.backgroundColor = .systemBackground
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sighOutDidTap))
-       
-        
+        setUpView()
+  
     }
     
 
+    private func setUpView(){
+        title = "Profile"
+        view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(sighOutDidTap))
+    }
+    
     @objc private func sighOutDidTap(){
         
     }

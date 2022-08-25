@@ -13,12 +13,18 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .systemBackground
-        title = "Home"
+        setUpView()
+     
+        
     }
     
 
  
+    private func setUpView(){
+        view.backgroundColor = .systemBackground
+        title = "Home"
+    }
+    
+  
 
 }
