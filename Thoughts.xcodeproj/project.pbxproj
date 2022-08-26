@@ -33,6 +33,7 @@
 		6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D328B637C2006C972A /* ProfileObject.swift */; };
 		6C6A89D628B637D2006C972A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D528B637D2006C972A /* BlogPost.swift */; };
 		6C6A89D928B63AE6006C972A /* UserDataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */; };
+		6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */; };
 		F1FF4638A342BC9DD082713B /* Pods_Thoughts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		6C6A89D328B637C2006C972A /* ProfileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileObject.swift; sourceTree = "<group>"; };
 		6C6A89D528B637D2006C972A /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeeper.swift; sourceTree = "<group>"; };
+		6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
 		9C3AC9A524F4795DD13AC794 /* Pods-Thoughts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.debug.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.debug.xcconfig"; sourceTree = "<group>"; };
 		B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,10 +125,10 @@
 		6C2EF0E328B5055B0058B202 /* Thoughts */ = {
 			isa = PBXGroup;
 			children = (
+				6C2EF0FA28B50D0E0058B202 /* Resources */,
 				6C5D1F1428B7C48700097BEE /* Extensions */,
 				6C5D1F0A28B7BA2200097BEE /* ViewModels */,
 				6C6A89D728B63AC2006C972A /* Helpers */,
-				6C2EF0FA28B50D0E0058B202 /* Resources */,
 				6C2EF0FE28B50D7F0058B202 /* Managers */,
 				6C2EF0FD28B50D6C0058B202 /* Models */,
 				6C2EF0FB28B50D1B0058B202 /* Views */,
@@ -236,6 +238,7 @@
 		6C5D1F0A28B7BA2200097BEE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6C6F20BE28B91799000015F9 /* Other */,
 				6C5D1F0B28B7BA2C00097BEE /* Core */,
 			);
 			path = ViewModels;
@@ -273,6 +276,14 @@
 				6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6C6F20BE28B91799000015F9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,6 +408,7 @@
 				6C6A89D628B637D2006C972A /* BlogPost.swift in Sources */,
 				6C5D1F0F28B7BAC400097BEE /* SignInViewModel.swift in Sources */,
 				6C2EF10A28B50EF40058B202 /* SighUpViewController.swift in Sources */,
+				6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */,
 				6C2EF0E528B5055B0058B202 /* AppDelegate.swift in Sources */,
 				6C2EF10328B50E4F0058B202 /* ProfileViewController.swift in Sources */,
 				6C5D1F1628B7C4BE00097BEE /* Extensions+UIView.swift in Sources */,

@@ -19,7 +19,15 @@ final class SignInViewModel : SignInViewModelProtocol {
     var present: (() -> Void)?
     
     func checkIsPremium() {
-        //
+        guard let present = present else {
+            return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            if !IAPManager.shared.isPremium() {
+                present()
+            }
+        }
     }
     
     

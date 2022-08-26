@@ -17,7 +17,7 @@ final class DatabaseManager {
     private init(){}
     
     func insert(
-        blodPost: BlogPost,// Сохранять в отдельном классе и хоанить сдеть объект этого кдасса и просто вызывать методы
+        blodPost: BlogPost,
         user: UserObject,
         completion: @escaping (Bool) -> Void
     ) {

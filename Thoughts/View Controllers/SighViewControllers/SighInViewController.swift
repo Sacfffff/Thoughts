@@ -8,12 +8,14 @@
 import UIKit
 
 class SighInViewController: UIViewController {
+    
+    private var viewModel : SignInViewModelProtocol = SignInViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
        setUpView()
-        checkIsPremium()
+        
     }
     
     private func setUpView(){
@@ -21,17 +23,11 @@ class SighInViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
+        viewModel.present = { [weak self] in self?.present(PayWallViewController(), animated: true)}
+        viewModel.checkIsPremium()
     }
 
-  
-    //off to view model
     
-    private func checkIsPremium() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            if !IAPManager.shared.isPremium() {
-                self.present(UINavigationController(rootViewController: PayWallViewController()), animated: true)
-            }
-        }
-    }
+  
 
 }

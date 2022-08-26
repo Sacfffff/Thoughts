@@ -10,6 +10,8 @@ import UIKit
 
 class PayWallViewController: UIViewController {
     
+    private var viewModel : PayWallViewModelProtocol = PayWallViewModel()
+    
     private let header : PayWallHeaderView =  {
         let header = PayWallHeaderView()
         header.translatesAutoresizingMaskIntoConstraints = false
@@ -88,12 +90,27 @@ class PayWallViewController: UIViewController {
     }
 
     @objc private func subscribeButtonDidTap() {
-        dismiss(animated: true)
+        viewModel.success = { [weak self] in self?.dismiss(animated: true) }
+        viewModel.failure =  { [weak self] in self?.createAlert(title: "Subscriptopn Failed", message: "We were unable to complete the transaction", preferredStyle: .alert) }
+        viewModel.subscribe()
+        
     }
     
+    
     @objc private func restoreButtonDidTap() {
-        dismiss(animated: true)
-    }
+        viewModel.success = { [weak self] in self?.dismiss(animated: true) }
+        viewModel.failure =  { [weak self] in  self?.createAlert(title: "Restorations Failed", message: "We were unable to restore a previous  transaction", preferredStyle: .alert)}
+        viewModel.restore()
+        
+        }
+    
+
+private func createAlert(title: String?, message: String?, preferredStyle: UIAlertController.Style) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: preferredStyle)
+    alert.addAction(UIAlertAction(title: "OK", style: .cancel))
+     self.present(alert, animated: true)
+}
+
     
     private func setupConstraints(){
         
