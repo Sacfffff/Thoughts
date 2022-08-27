@@ -12,6 +12,10 @@ import FirebaseFirestore
 final class DatabaseManager {
     static let shared = DatabaseManager()
     
+    private enum ConstansKeys {
+        static let kDatabaseCollectionInsert = "users"
+    }
+    
     private let database = Firestore.firestore()
     
     private init(){}
@@ -42,7 +46,20 @@ final class DatabaseManager {
         user: UserObject,
         completion: @escaping (Bool) -> Void
     ) {
-        
+        let data =
+        [
+            "email" : user.email,
+            "name" : user.name
+        ]
+        let documentID = user.email
+            .replacingOccurrences(of: ".", with: "_")
+            .replacingOccurrences(of: "@", with: "_")
+        database
+            .collection(ConstansKeys.kDatabaseCollectionInsert)
+            .document(documentID)
+            .setData(data) { error in
+                completion(error == nil)
+            }
     }
     
 }

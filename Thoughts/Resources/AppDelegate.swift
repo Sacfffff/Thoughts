@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-      Purchases.configure(withAPIKey: " ")
+     // Purchases.configure(withAPIKey: " ")
         
 
         

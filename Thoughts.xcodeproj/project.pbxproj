@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C2D0D3728BA128D005375D7 /* ConstantKeysUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D0D3628BA128D005375D7 /* ConstantKeysUserDefault.swift */; };
+		6C2D0D3A28BA13FA005375D7 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D0D3928BA13FA005375D7 /* SignUpViewModel.swift */; };
+		6C2D0D3C28BA1632005375D7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2D0D3B28BA1632005375D7 /* ProfileViewModel.swift */; };
 		6C2EF0E528B5055B0058B202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF0E428B5055B0058B202 /* AppDelegate.swift */; };
 		6C2EF0E728B5055B0058B202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF0E628B5055B0058B202 /* SceneDelegate.swift */; };
 		6C2EF0EE28B5055B0058B202 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C2EF0ED28B5055B0058B202 /* Assets.xcassets */; };
@@ -18,7 +21,7 @@
 		6C2EF10A28B50EF40058B202 /* SighUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF10928B50EF40058B202 /* SighUpViewController.swift */; };
 		6C2EF10D28B50F2A0058B202 /* ViewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF10C28B50F2A0058B202 /* ViewPostViewController.swift */; };
 		6C2EF10F28B50F570058B202 /* CreateNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF10E28B50F570058B202 /* CreateNewPostViewController.swift */; };
-		6C2EF11228B50F980058B202 /* IAPManagers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11128B50F980058B202 /* IAPManagers.swift */; };
+		6C2EF11228B50F980058B202 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11128B50F980058B202 /* IAPManager.swift */; };
 		6C2EF11428B50FB40058B202 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11328B50FB40058B202 /* DatabaseManager.swift */; };
 		6C2EF11628B50FD20058B202 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11528B50FD20058B202 /* AuthManager.swift */; };
 		6C2EF11828B50FEA0058B202 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11728B50FEA0058B202 /* StorageManager.swift */; };
@@ -33,12 +36,16 @@
 		6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D328B637C2006C972A /* ProfileObject.swift */; };
 		6C6A89D628B637D2006C972A /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D528B637D2006C972A /* BlogPost.swift */; };
 		6C6A89D928B63AE6006C972A /* UserDataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */; };
+		6C6BE8FB28B9E7B20030EC34 /* SignHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BE8FA28B9E7B20030EC34 /* SignHeaderView.swift */; };
 		6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */; };
 		F1FF4638A342BC9DD082713B /* Pods_Thoughts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2EDD7D673EB51FB2B73BDA33 /* Pods-Thoughts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.release.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.release.xcconfig"; sourceTree = "<group>"; };
+		6C2D0D3628BA128D005375D7 /* ConstantKeysUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantKeysUserDefault.swift; sourceTree = "<group>"; };
+		6C2D0D3928BA13FA005375D7 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		6C2D0D3B28BA1632005375D7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		6C2EF0E128B5055B0058B202 /* Thoughts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thoughts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2EF0E428B5055B0058B202 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C2EF0E628B5055B0058B202 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +59,7 @@
 		6C2EF10928B50EF40058B202 /* SighUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SighUpViewController.swift; sourceTree = "<group>"; };
 		6C2EF10C28B50F2A0058B202 /* ViewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostViewController.swift; sourceTree = "<group>"; };
 		6C2EF10E28B50F570058B202 /* CreateNewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPostViewController.swift; sourceTree = "<group>"; };
-		6C2EF11128B50F980058B202 /* IAPManagers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManagers.swift; sourceTree = "<group>"; };
+		6C2EF11128B50F980058B202 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		6C2EF11328B50FB40058B202 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		6C2EF11528B50FD20058B202 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		6C2EF11728B50FEA0058B202 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -69,6 +76,7 @@
 		6C6A89D328B637C2006C972A /* ProfileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileObject.swift; sourceTree = "<group>"; };
 		6C6A89D528B637D2006C972A /* BlogPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPost.swift; sourceTree = "<group>"; };
 		6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeeper.swift; sourceTree = "<group>"; };
+		6C6BE8FA28B9E7B20030EC34 /* SignHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignHeaderView.swift; sourceTree = "<group>"; };
 		6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
 		9C3AC9A524F4795DD13AC794 /* Pods-Thoughts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.debug.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.debug.xcconfig"; sourceTree = "<group>"; };
 		B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +109,15 @@
 				2EDD7D673EB51FB2B73BDA33 /* Pods-Thoughts.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		6C2D0D3828BA13DD005375D7 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				6C5D1F0E28B7BAC400097BEE /* SignInViewModel.swift */,
+				6C2D0D3928BA13FA005375D7 /* SignUpViewModel.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		6C2EF0D828B5055B0058B202 = {
@@ -153,6 +170,7 @@
 		6C2EF0FB28B50D1B0058B202 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6C6BE8F928B9E78D0030EC34 /* SighIn */,
 				6C5D1F1328B7C2F000097BEE /* PayWallViews */,
 				6C2EF0EF28B5055B0058B202 /* LaunchScreen.storyboard */,
 			);
@@ -164,7 +182,7 @@
 			children = (
 				6C5D1F0728B7B6FA00097BEE /* Other */,
 				6C2EF11028B50F630058B202 /* Post */,
-				6C2EF10B28B50EFD0058B202 /* SighViewControllers */,
+				6C2EF10B28B50EFD0058B202 /* Auth */,
 				6C2EF10428B50E630058B202 /* TabViewControllers */,
 			);
 			path = "View Controllers";
@@ -183,7 +201,7 @@
 		6C2EF0FE28B50D7F0058B202 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				6C2EF11128B50F980058B202 /* IAPManagers.swift */,
+				6C2EF11128B50F980058B202 /* IAPManager.swift */,
 				6C2EF11328B50FB40058B202 /* DatabaseManager.swift */,
 				6C2EF11528B50FD20058B202 /* AuthManager.swift */,
 				6C2EF11728B50FEA0058B202 /* StorageManager.swift */,
@@ -209,13 +227,13 @@
 			path = TabViewControllers;
 			sourceTree = "<group>";
 		};
-		6C2EF10B28B50EFD0058B202 /* SighViewControllers */ = {
+		6C2EF10B28B50EFD0058B202 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				6C2EF10928B50EF40058B202 /* SighUpViewController.swift */,
 				6C2EF10728B50EE00058B202 /* SighInViewController.swift */,
 			);
-			path = SighViewControllers;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		6C2EF11028B50F630058B202 /* Post */ = {
@@ -238,6 +256,7 @@
 		6C5D1F0A28B7BA2200097BEE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6C2D0D3828BA13DD005375D7 /* Auth */,
 				6C6F20BE28B91799000015F9 /* Other */,
 				6C5D1F0B28B7BA2C00097BEE /* Core */,
 			);
@@ -248,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				6C5D1F0C28B7BA4300097BEE /* MainViewModel.swift */,
-				6C5D1F0E28B7BAC400097BEE /* SignInViewModel.swift */,
+				6C2D0D3B28BA1632005375D7 /* ProfileViewModel.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -274,8 +293,17 @@
 			isa = PBXGroup;
 			children = (
 				6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */,
+				6C2D0D3628BA128D005375D7 /* ConstantKeysUserDefault.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		6C6BE8F928B9E78D0030EC34 /* SighIn */ = {
+			isa = PBXGroup;
+			children = (
+				6C6BE8FA28B9E7B20030EC34 /* SignHeaderView.swift */,
+			);
+			path = SighIn;
 			sourceTree = "<group>";
 		};
 		6C6F20BE28B91799000015F9 /* Other */ = {
@@ -407,16 +435,20 @@
 				6C5D1F1228B7C2E900097BEE /* PayWallHeaderView.swift in Sources */,
 				6C6A89D628B637D2006C972A /* BlogPost.swift in Sources */,
 				6C5D1F0F28B7BAC400097BEE /* SignInViewModel.swift in Sources */,
+				6C2D0D3C28BA1632005375D7 /* ProfileViewModel.swift in Sources */,
+				6C2D0D3728BA128D005375D7 /* ConstantKeysUserDefault.swift in Sources */,
 				6C2EF10A28B50EF40058B202 /* SighUpViewController.swift in Sources */,
 				6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */,
 				6C2EF0E528B5055B0058B202 /* AppDelegate.swift in Sources */,
 				6C2EF10328B50E4F0058B202 /* ProfileViewController.swift in Sources */,
 				6C5D1F1628B7C4BE00097BEE /* Extensions+UIView.swift in Sources */,
 				6C5D1F1828B7D4B500097BEE /* PayWallDescriptionView.swift in Sources */,
+				6C2D0D3A28BA13FA005375D7 /* SignUpViewModel.swift in Sources */,
 				6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */,
 				6C2EF10F28B50F570058B202 /* CreateNewPostViewController.swift in Sources */,
 				6C5D1F0928B7B71400097BEE /* PayWallViewController.swift in Sources */,
-				6C2EF11228B50F980058B202 /* IAPManagers.swift in Sources */,
+				6C6BE8FB28B9E7B20030EC34 /* SignHeaderView.swift in Sources */,
+				6C2EF11228B50F980058B202 /* IAPManager.swift in Sources */,
 				6C2EF10628B50EA70058B202 /* TabBarViewController.swift in Sources */,
 				6C6A89D928B63AE6006C972A /* UserDataKeeper.swift in Sources */,
 				6C5D1F0D28B7BA4300097BEE /* MainViewModel.swift in Sources */,

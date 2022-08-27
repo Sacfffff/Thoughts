@@ -23,7 +23,11 @@ class MainViewController: UIViewController {
     private func setUpView(){
         view.backgroundColor = .systemBackground
         title = "Home"
+       
+      
     }
+    
+
     
   
 
