@@ -24,7 +24,7 @@ final class SignUpViewModel : SignUpViewModelProtocol {
         }
         AuthManager.shared.signUp(email: email, password: password) { successed in
             if successed {
-                DatabaseManager.shared.insert(user: UserObject(email: email, name: name, profilePictureUrl: nil)) { insertedIn in
+                DatabaseManager.shared.insert(user: UserObject(email: email, name: name, profilePictureRef: nil)) { insertedIn in
                     guard insertedIn else {
                         return
                     }

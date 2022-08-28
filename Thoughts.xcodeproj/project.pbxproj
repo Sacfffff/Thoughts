@@ -31,6 +31,7 @@
 		6C5D1F1228B7C2E900097BEE /* PayWallHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F1128B7C2E900097BEE /* PayWallHeaderView.swift */; };
 		6C5D1F1628B7C4BE00097BEE /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F1528B7C4BE00097BEE /* Extensions+UIView.swift */; };
 		6C5D1F1828B7D4B500097BEE /* PayWallDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F1728B7D4B500097BEE /* PayWallDescriptionView.swift */; };
+		6C5D9F9D28BB674F002371F9 /* ConstantKeysDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D9F9C28BB674F002371F9 /* ConstantKeysDatabase.swift */; };
 		6C6A89D028B62DBC006C972A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C6A89CF28B62DBC006C972A /* GoogleService-Info.plist */; };
 		6C6A89D228B637A4006C972A /* UserObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D128B637A4006C972A /* UserObject.swift */; };
 		6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D328B637C2006C972A /* ProfileObject.swift */; };
@@ -71,6 +72,7 @@
 		6C5D1F1128B7C2E900097BEE /* PayWallHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallHeaderView.swift; sourceTree = "<group>"; };
 		6C5D1F1528B7C4BE00097BEE /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		6C5D1F1728B7D4B500097BEE /* PayWallDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallDescriptionView.swift; sourceTree = "<group>"; };
+		6C5D9F9C28BB674F002371F9 /* ConstantKeysDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantKeysDatabase.swift; sourceTree = "<group>"; };
 		6C6A89CF28B62DBC006C972A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6C6A89D128B637A4006C972A /* UserObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserObject.swift; sourceTree = "<group>"; };
 		6C6A89D328B637C2006C972A /* ProfileObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileObject.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */,
 				6C2D0D3628BA128D005375D7 /* ConstantKeysUserDefault.swift */,
+				6C5D9F9C28BB674F002371F9 /* ConstantKeysDatabase.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				6C5D1F1628B7C4BE00097BEE /* Extensions+UIView.swift in Sources */,
 				6C5D1F1828B7D4B500097BEE /* PayWallDescriptionView.swift in Sources */,
 				6C2D0D3A28BA13FA005375D7 /* SignUpViewModel.swift in Sources */,
+				6C5D9F9D28BB674F002371F9 /* ConstantKeysDatabase.swift in Sources */,
 				6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */,
 				6C2EF10F28B50F570058B202 /* CreateNewPostViewController.swift in Sources */,
 				6C5D1F0928B7B71400097BEE /* PayWallViewController.swift in Sources */,

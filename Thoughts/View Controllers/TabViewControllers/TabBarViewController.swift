@@ -48,9 +48,10 @@ class TabBarViewController: UITabBarController {
 
 
     private func setUpControllers(){
+        guard let currentUserEmail = UserDefaults.standard.string(forKey: ConstantKeysUserDefaults.kEmail) else {return}
         let tabControllers = TabBarViewControllers.getAll
         var navigationControllers : [UINavigationController] = []
-        let controllers : [UIViewController] = [MainViewController(), ProfileViewController()]
+        let controllers : [UIViewController] = [MainViewController(), ProfileViewController(email: currentUserEmail)]
         
         for (index, controller) in  controllers.enumerated(){
             controller.navigationItem.largeTitleDisplayMode = .always
