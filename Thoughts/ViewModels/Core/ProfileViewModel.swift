@@ -19,12 +19,14 @@ protocol ProfileViewModelProtocol {
     
     func signOut()
     func fetchProfileData()
+    func fetchPosts()
     func downloadUrlForProfilePicture(ref: String, completion: @escaping (UIImage?) -> Void)
     func uploadUserProfileLPicture(image: UIImage)
 }
 
 final class ProfileViewModel : ProfileViewModelProtocol {
 
+    private let service : UploadDownloadPicturesService = UploadDownloadPicturesService()
      var currentEmail: String
     
      var user : UserObject?
@@ -77,40 +79,21 @@ final class ProfileViewModel : ProfileViewModelProtocol {
         }
     }
     
-    
-    func downloadUrlForProfilePicture(ref: String, completion: @escaping (UIImage?) -> Void) {
-        StorageManager.shared.downloadUrlForProfilePicture(path: ref) { url in
-            guard let url = url else {
-                return
-            }
-            
-           URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
-               guard let data = data else {
-                    return
-                }
-
-               DispatchQueue.main.async {
-                   completion(UIImage(data: data))
-                }
-           }.resume()
-
+     func fetchPosts(){
+        DatabaseManager.shared.getPosts(from: currentEmail) { [weak self] posts in
+            self?.posts = posts  
         }
     }
     
+    
+    func downloadUrlForProfilePicture(ref: String, completion: @escaping (UIImage?) -> Void) {
+        service.downloadUrlForProfilePicture(ref: ref, completion: completion)
+    }
+    
     func uploadUserProfileLPicture(image: UIImage){
-        StorageManager.shared.uploadUserProfileLPicture(email: self.currentEmail,
-                                                        image: image) { [weak self] success in
-            guard let strongSelf = self else { return }
-            if success {
-                DatabaseManager.shared.updateProfilePhoto(email: strongSelf.currentEmail) { updated in
-                    guard updated else {
-                        return
-                    }
-                    DispatchQueue.main.async {
-                        self?.fetchProfileData()
-                    }
-                }
-            }
+        service.uploadUserProfileLPicture(image: image, email: currentEmail) { [weak self] successeded in
+            guard successeded else { return }
+            self?.fetchProfileData()
         }
 
     }

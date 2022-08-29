@@ -5,9 +5,13 @@
 //  Created by Aleks Kravtsova on 25.08.22.
 //
 
-import Foundation
+import UIKit
 
 protocol MainViewModelProtocol {
     
-   
+  
+}
+
+final class MainView : MainViewModelProtocol {
+  
 }

@@ -6,13 +6,16 @@
 //
 
 import Foundation
-import FirebaseStorage
+
+import UIKit
 
 
 final class StorageManager {
     static let shared = StorageManager()
     
-    private let storage = Storage.storage()
+    private let storageHelper : StorageService = StorageService()
+    private let pathService = CreatePathFromEmailService()
+
     private init(){}
     
     func uploadUserProfileLPicture(
@@ -20,47 +23,39 @@ final class StorageManager {
         image : UIImage?,
         completion:  @escaping (Bool) -> Void
     ) {
-        let path = email
-            .replacingOccurrences(of: "@", with: "-")
-            .replacingOccurrences(of: ".", with: "_")
-        guard let pngData = image?.pngData() else {
-            return
-        }
-        storage
-            .reference(withPath: "\(ConstantKeysDatabase.kDataBaseGetPhoto)/\(path)/photo.png")
-            .putData(pngData, metadata: nil) { result in
-                switch result {
-                case .success(_):
-                    completion(true)
-                case .failure(_):
-                    completion(false)
-                }
-            }
+        let path = "\(ConstantKeysDatabase.kDataBaseGetPhoto)/\(pathService.createPath(with: email))/photo.png"
+        
+        storageHelper.upload(image, path: path, completion: completion)
+     
     }
     
     func downloadUrlForProfilePicture(
         path: String,
         completion: @escaping (URL?) -> Void
     ) {
-        storage.reference(withPath: path)
-            .downloadURL { url, _ in
-               completion(url)
-            }
+        storageHelper.download(path: path, completion: completion)
     }
     
     func uploadBlogHeaderImage(
-        blogPost: BlogPost,
-        image : UIImage?,
+        email: String,
+        blogPostID: String,
+        image : UIImage,
         completion:  @escaping (Bool) -> Void
     ) {
-        
+        let pathComponent = "\(ConstantKeysDatabase.kDataBaseInsertPostHeader)/\(pathService.createPath(with: email))/\(blogPostID).png"
+        storageHelper.upload(image, path: pathComponent, completion: completion)
     }
     
     func downloadUrlForPostHeader(
-        blogPost: BlogPost,
+        email: String,
+        blogPostID: String,
         completion: @escaping (URL?) -> Void
     ) {
-        
+        let path = "\(ConstantKeysDatabase.kDataBaseInsertPostHeader)/\(pathService.createPath(with: email))/\(blogPostID).png"
+        storageHelper.download(path: path, completion: completion)
+
     }
+
+
     
 }

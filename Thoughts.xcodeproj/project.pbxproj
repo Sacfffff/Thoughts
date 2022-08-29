@@ -39,6 +39,10 @@
 		6C6A89D928B63AE6006C972A /* UserDataKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */; };
 		6C6BE8FB28B9E7B20030EC34 /* SignHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6BE8FA28B9E7B20030EC34 /* SignHeaderView.swift */; };
 		6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */; };
+		6C7371F528BCA60400DBAA4C /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7371F428BCA60400DBAA4C /* StorageService.swift */; };
+		6C7371F728BCA75700DBAA4C /* CreatePathFromEmailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7371F628BCA75700DBAA4C /* CreatePathFromEmailService.swift */; };
+		6C7371FA28BCB70500DBAA4C /* UploadDownloadPicturesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7371F928BCB70500DBAA4C /* UploadDownloadPicturesService.swift */; };
+		6C7371FC28BCBEC200DBAA4C /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7371FB28BCBEC200DBAA4C /* CreatePostViewModel.swift */; };
 		F1FF4638A342BC9DD082713B /* Pods_Thoughts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		6C6A89D828B63AE6006C972A /* UserDataKeeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeeper.swift; sourceTree = "<group>"; };
 		6C6BE8FA28B9E7B20030EC34 /* SignHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignHeaderView.swift; sourceTree = "<group>"; };
 		6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewModel.swift; sourceTree = "<group>"; };
+		6C7371F428BCA60400DBAA4C /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		6C7371F628BCA75700DBAA4C /* CreatePathFromEmailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePathFromEmailService.swift; sourceTree = "<group>"; };
+		6C7371F928BCB70500DBAA4C /* UploadDownloadPicturesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadDownloadPicturesService.swift; sourceTree = "<group>"; };
+		6C7371FB28BCBEC200DBAA4C /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		9C3AC9A524F4795DD13AC794 /* Pods-Thoughts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.debug.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.debug.xcconfig"; sourceTree = "<group>"; };
 		B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -144,6 +152,7 @@
 		6C2EF0E328B5055B0058B202 /* Thoughts */ = {
 			isa = PBXGroup;
 			children = (
+				6C7371F828BCA7D600DBAA4C /* Services */,
 				6C2EF0FA28B50D0E0058B202 /* Resources */,
 				6C5D1F1428B7C48700097BEE /* Extensions */,
 				6C5D1F0A28B7BA2200097BEE /* ViewModels */,
@@ -258,6 +267,7 @@
 		6C5D1F0A28B7BA2200097BEE /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				6C7371FD28BCBF2300DBAA4C /* Posts */,
 				6C2D0D3828BA13DD005375D7 /* Auth */,
 				6C6F20BE28B91799000015F9 /* Other */,
 				6C5D1F0B28B7BA2C00097BEE /* Core */,
@@ -315,6 +325,24 @@
 				6C6F20BF28B917AE000015F9 /* PayWallViewModel.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		6C7371F828BCA7D600DBAA4C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6C7371F928BCB70500DBAA4C /* UploadDownloadPicturesService.swift */,
+				6C7371F628BCA75700DBAA4C /* CreatePathFromEmailService.swift */,
+				6C7371F428BCA60400DBAA4C /* StorageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6C7371FD28BCBF2300DBAA4C /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				6C7371FB28BCBEC200DBAA4C /* CreatePostViewModel.swift */,
+			);
+			path = Posts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,11 +473,14 @@
 				6C2EF0E528B5055B0058B202 /* AppDelegate.swift in Sources */,
 				6C2EF10328B50E4F0058B202 /* ProfileViewController.swift in Sources */,
 				6C5D1F1628B7C4BE00097BEE /* Extensions+UIView.swift in Sources */,
+				6C7371F728BCA75700DBAA4C /* CreatePathFromEmailService.swift in Sources */,
 				6C5D1F1828B7D4B500097BEE /* PayWallDescriptionView.swift in Sources */,
 				6C2D0D3A28BA13FA005375D7 /* SignUpViewModel.swift in Sources */,
 				6C5D9F9D28BB674F002371F9 /* ConstantKeysDatabase.swift in Sources */,
 				6C6A89D428B637C2006C972A /* ProfileObject.swift in Sources */,
+				6C7371FC28BCBEC200DBAA4C /* CreatePostViewModel.swift in Sources */,
 				6C2EF10F28B50F570058B202 /* CreateNewPostViewController.swift in Sources */,
+				6C7371FA28BCB70500DBAA4C /* UploadDownloadPicturesService.swift in Sources */,
 				6C5D1F0928B7B71400097BEE /* PayWallViewController.swift in Sources */,
 				6C6BE8FB28B9E7B20030EC34 /* SignHeaderView.swift in Sources */,
 				6C2EF11228B50F980058B202 /* IAPManager.swift in Sources */,
@@ -461,6 +492,7 @@
 				6C2EF11428B50FB40058B202 /* DatabaseManager.swift in Sources */,
 				6C2EF11828B50FEA0058B202 /* StorageManager.swift in Sources */,
 				6C6A89D228B637A4006C972A /* UserObject.swift in Sources */,
+				6C7371F528BCA60400DBAA4C /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

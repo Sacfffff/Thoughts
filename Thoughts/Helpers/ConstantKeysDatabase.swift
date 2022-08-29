@@ -9,6 +9,8 @@ import Foundation
 
 
 enum ConstantKeysDatabase {
-   static let kDatabaseCollectionGetUsers = "users"
-   static let kDataBaseGetPhoto = "profile_photo"
+    static let kDatabaseCollectionGetUsers = "users"
+    static let kDataBaseGetPhoto = "profile_photo"
+    static let kDataBaseInsertPostHeader = "post_header"
+    static let kDatabaseCollectionGetPosts = "posts"
 }

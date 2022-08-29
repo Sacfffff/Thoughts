@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
                 name: self?.viewModel.user?.name)
         }
         viewModel.fetchProfileData()
+        viewModel.fetchPosts()
        
       
     }
@@ -77,6 +78,7 @@ class ProfileViewController: UIViewController {
         tableView.tableHeaderView = headerView
         
         let profilePhoto = createProfilePicture(headerView.height)
+        headerView.addSubview(profilePhoto)
        
         
         let emailLabel = createEmailLabel(profilePhoto.bottom + 10.0)
@@ -90,12 +92,12 @@ class ProfileViewController: UIViewController {
             }
 
         }
-        headerView.addSubview(profilePhoto)
+       
     }
     
     //MARK: - createProfilePicture
     private func createProfilePicture(_ y: CGFloat) -> UIImageView {
-        let profilePhoto = UIImageView()
+        let profilePhoto = UIImageView(image: UIImage(systemName: "person.circle"))
         profilePhoto.tintColor = .white
         profilePhoto.contentMode = .scaleAspectFit
         profilePhoto.frame = CGRect(x: (view.width - (view.width / 4.0)) / 2.0,
@@ -120,10 +122,8 @@ class ProfileViewController: UIViewController {
         return emailLabel
     }
     
-    //MARK: - TODO
-    private func fetchPostts(){
-        
-    }
+ 
+   
     
     @objc private func sighOutDidTap(){
         let alert = UIAlertController(title: "Sign Out",
@@ -144,7 +144,7 @@ class ProfileViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    //MARK: - todo
+
     @objc private func profilePhotoDidTap(){
         guard let myEmail = UserDefaults.standard.string(forKey: ConstantKeysUserDefaults.kEmail),
               myEmail == viewModel.currentEmail else {
@@ -183,6 +183,7 @@ extension ProfileViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = viewModel.posts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = post.title
         return cell
     }
     
@@ -207,7 +208,6 @@ extension ProfileViewController : UINavigationControllerDelegate, UIImagePickerC
         picker.dismiss(animated: true)
     }
  
-    //MARK: - todo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         guard let image = info[.editedImage] as? UIImage else {

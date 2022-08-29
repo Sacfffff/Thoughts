@@ -14,29 +14,70 @@ final class DatabaseManager {
     static let shared = DatabaseManager()
     
     private let database = Firestore.firestore()
+    private let pathService = CreatePathFromEmailService()
     
     private init(){}
     
     func insert(
         blodPost: BlogPost,
-        user: UserObject,
+        email: String,
         completion: @escaping (Bool) -> Void
     ) {
-        
+        let data  :  [String : Any] =
+        [
+            "id" : blodPost.identifier,
+            "title" : blodPost.title,
+            "body" : blodPost.text,
+            "created" : blodPost.timestamp,
+            "headerImageURL" : blodPost.headerImageUrl?.absoluteString ?? ""
+            
+        ]
+        let documentID = pathService.createPath(with: email)
+        database
+            .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
+            .document(documentID)
+            .collection(ConstantKeysDatabase.kDatabaseCollectionGetPosts)
+            .document(blodPost.identifier)
+            .setData(data) { error in
+                completion(error == nil)
+            }
     }
     
     
     func getAllPosts(
         completion: @escaping ([BlogPost]) -> Void
     ) {
+      
         
     }
     
     func getPosts(
-        from user: UserObject,
+        from email: String,
         completion: @escaping ([BlogPost]) -> Void
     ) {
-        
+        let documentID = pathService.createPath(with: email)
+        database
+            .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
+            .document(documentID)
+            .collection(ConstantKeysDatabase.kDatabaseCollectionGetPosts)
+            .getDocuments { snapshot, error in
+                guard let documents = snapshot?.documents.compactMap({ $0.data() }), error == nil else { return }
+                
+                let posts : [BlogPost] = documents.compactMap { dictionary in
+                    guard let id = dictionary["id"] as? String,
+                          let title = dictionary["title"] as? String,
+                          let body = dictionary["body"] as? String,
+                          let created = dictionary["created"] as? TimeInterval,
+                          let headerImageURL = dictionary["headerImageURL"] as? String else { return nil }
+                    
+                   return BlogPost(identifier: id, title: title, timestamp: created, headerImageUrl: URL(string:headerImageURL), text: body)
+                    
+                }
+                    completion(posts)
+                   
+                
+                
+            }
     }
     
     func insert(
@@ -48,7 +89,7 @@ final class DatabaseManager {
             ConstantKeysUserDefaults.kEmail : user.email,
             ConstantKeysUserDefaults.kName : user.name
         ]
-        let documentID = createDocumentID(email: user.email)
+        let documentID = pathService.createPath(with: user.email)
         database
             .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
             .document(documentID)
@@ -58,7 +99,7 @@ final class DatabaseManager {
     }
     
     func getUser(email: String, completion: @escaping (UserObject?) -> Void){
-       let documentID = createDocumentID(email: email)
+       let documentID = pathService.createPath(with: email)
         
         database
             .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
@@ -83,7 +124,7 @@ final class DatabaseManager {
         email: String,
         completion:  @escaping (Bool) -> Void
     ) {
-        let path = createDocumentID(email: email)
+        let path = pathService.createPath(with: email)
         let photoRef = "\(ConstantKeysDatabase.kDataBaseGetPhoto)/\(path)/photo.png"
         let dbRef = database
             .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
@@ -101,10 +142,6 @@ final class DatabaseManager {
     }
 
     
-    private func createDocumentID(email: String) -> String {
-       return email
-            .replacingOccurrences(of: ".", with: "_")
-            .replacingOccurrences(of: "@", with: "-")
-    }
+    
     
 }
