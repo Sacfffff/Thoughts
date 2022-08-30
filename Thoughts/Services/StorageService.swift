@@ -20,19 +20,25 @@ final class StorageService {
         storage
             .reference(withPath: path)
             .putData(pngData, metadata: nil) { result in
-                switch result {
-                case .success(_):
-                    completion(true)
-                case .failure(_):
-                    completion(false)
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(_):
+                        completion(true)
+                    case .failure(_):
+                        completion(false)
+                    }
                 }
+               
             }
     }
     
      func download(path: String, completion: @escaping (URL?) -> Void){
         storage.reference(withPath: path)
             .downloadURL { url, _ in
-               completion(url)
+                DispatchQueue.main.async {
+                    completion(url)
+                }
+               
             }
     }
 }

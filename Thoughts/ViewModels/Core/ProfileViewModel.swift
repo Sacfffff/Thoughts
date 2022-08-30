@@ -32,7 +32,7 @@ final class ProfileViewModel : ProfileViewModelProtocol {
      var user : UserObject?
     
      var posts : [BlogPost] = [] {
-        didSet{
+        didSet {
            update?()
         }
        
@@ -81,7 +81,11 @@ final class ProfileViewModel : ProfileViewModelProtocol {
     
      func fetchPosts(){
         DatabaseManager.shared.getPosts(from: currentEmail) { [weak self] posts in
-            self?.posts = posts  
+            DispatchQueue.main.async {
+                self?.posts = posts
+            }
+           
+            
         }
     }
     

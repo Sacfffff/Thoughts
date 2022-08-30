@@ -48,6 +48,34 @@ final class DatabaseManager {
         completion: @escaping ([BlogPost]) -> Void
     ) {
       
+        database
+            .collection(ConstantKeysDatabase.kDatabaseCollectionGetUsers)
+            .getDocuments { [weak self] snapshot, error in
+                guard let documents = snapshot?.documents.compactMap({ $0.data() }),
+                      error == nil else { return }
+                let email : [String] = documents.compactMap({ $0[ConstantKeysUserDefaults.kEmail] as? String })
+                guard !email.isEmpty else {
+                    completion([])
+                    return
+                }
+                
+                let group = DispatchGroup()
+                var results : [BlogPost] = []
+                email.forEach({
+                    group.enter()
+                    self?.getPosts(from: $0) { userPosts in
+                        defer {
+                            group.leave()
+                        }
+                        results.append(contentsOf: userPosts)
+                    }
+                })
+                
+                group.notify(queue: .global()) {
+                    completion(results)
+                }
+                
+            }
         
     }
     

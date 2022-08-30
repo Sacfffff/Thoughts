@@ -143,7 +143,7 @@ class CreateNewPostViewController: UIViewController {
     }
 }
 
-
+//MARK: - extension UINavigationControllerDelegate, UIImagePickerControllerDelegate 
 extension CreateNewPostViewController : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)

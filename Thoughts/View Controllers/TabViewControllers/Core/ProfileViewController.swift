@@ -14,7 +14,8 @@ class ProfileViewController: UIViewController {
     
     private let tableView : UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(PostPreviewTableViewCell.self, forCellReuseIdentifier: "\(PostPreviewTableViewCell.self)")
+        tableView.rowHeight = 100.0
         return tableView
     }()
     
@@ -182,11 +183,12 @@ extension ProfileViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = viewModel.posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = post.title
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostPreviewTableViewCell.self)", for: indexPath) as? PostPreviewTableViewCell else { return .init() }
+        cell.setUp(with: PostPreviewModel(title: post.title, imageURL: post.headerImageUrl))
         return cell
     }
     
+
     
 }
 
@@ -199,10 +201,12 @@ extension ProfileViewController : UITableViewDataSource {
 extension ProfileViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(ViewPostViewController(), animated: true)
+        navigationController?.pushViewController(ViewPostViewController(post: viewModel.posts[indexPath.row]), animated: true)
     }
 }
 
+
+//MARK: - extension UINavigationControllerDelegate, UIImagePickerControllerDelegate
 extension ProfileViewController : UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true)

@@ -8,10 +8,26 @@
 import UIKit
 
 protocol MainViewModelProtocol {
-    
+    var posts : [BlogPost] {get}
+    var update : (() -> Void)? {get set}
+   
+    func fetchAllPosts()
   
 }
 
-final class MainView : MainViewModelProtocol {
-  
+final class MainViewModel : MainViewModelProtocol {
+    var update : (() -> Void)?
+    var posts: [BlogPost] = [] {
+        didSet {
+           update?()
+        }
+    }
+    
+    func fetchAllPosts(){
+        DatabaseManager.shared.getAllPosts { [weak self] posts in
+            DispatchQueue.main.async {
+                self?.posts = posts
+            }
+        }
+   }
 }

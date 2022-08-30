@@ -8,7 +8,18 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    
+    private var viewModel : MainViewModelProtocol = MainViewModel()
+    
 
+    private let tableView : UITableView = {
+        let tableView = UITableView()
+        tableView.register(PostPreviewTableViewCell.self, forCellReuseIdentifier: "\(PostPreviewTableViewCell.self)")
+        tableView.rowHeight = 100.0
+        return tableView
+    }()
+    
+    
     private let composeButton : UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +39,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        
      
         
     }
@@ -36,14 +48,20 @@ class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         setupConstraints()
         composeButton.layer.cornerRadius = composeButton.width / 2
+        tableView.frame = view.bounds
     }
 
  
     private func setUpView(){
         view.backgroundColor = .systemBackground
         title = "Home"
+        view.addSubview(tableView)
         view.addSubview(composeButton)
         composeButton.addTarget(self, action: #selector(composeButtondidTap), for: .touchUpInside)
+        tableView.delegate = self
+        tableView.dataSource = self
+        viewModel.update = tableView.reloadData
+        viewModel.fetchAllPosts()
       
     }
     
@@ -76,4 +94,37 @@ class MainViewController: UIViewController {
     
   
 
+}
+
+
+//MARK: - extension UITableViewDataSource
+
+extension MainViewController : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = viewModel.posts[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(PostPreviewTableViewCell.self)", for: indexPath) as? PostPreviewTableViewCell else { return .init() }
+        cell.setUp(with: PostPreviewModel(title: post.title, imageURL: post.headerImageUrl))
+        return cell
+    }
+    
+
+    
+}
+
+
+
+
+
+//MARK: - extension UITableViewDelegate
+
+extension MainViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        navigationController?.pushViewController(ViewPostViewController(post: viewModel.posts[indexPath.row]), animated: true)
+    }
 }
