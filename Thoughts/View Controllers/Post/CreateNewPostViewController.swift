@@ -82,8 +82,12 @@ class CreateNewPostViewController: UIViewController {
             return
         }
  
-        viewModel.cancel = cancelButtonDidTap
-        viewModel.uploadBlogHeaderImage(email: email, headerImage: headerImage, postTitle: title, postBody: body)
+        DispatchQueue.main.async { [weak self] in
+            HapticksManager.shared.vibrate(for: .success)
+            self?.viewModel.cancel = self?.cancelButtonDidTap
+            self?.viewModel.uploadBlogHeaderImage(email: email, headerImage: headerImage, postTitle: title, postBody: body)
+        }
+       
       
         
     }

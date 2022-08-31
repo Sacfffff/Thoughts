@@ -118,6 +118,7 @@ class SighInViewController: UIViewController {
         guard let email = emailField.text, !email.isEmpty,
               let password = passwordField.text, !password.isEmpty else {return}
         
+        HapticksManager.shared.vibrateForSelection()
      
         viewModel.present = { [weak self] in
             let vc = TabBarViewController()

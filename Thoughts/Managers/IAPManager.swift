@@ -12,7 +12,6 @@ import StoreKit
 final class IAPManager {
     
     private enum ConstantKeys {
-        static let kPremium = "Premium"
         static let kOfferings = "default"
     }
     
@@ -22,7 +21,7 @@ final class IAPManager {
     private init() {}
     
     func isPremium() -> Bool {
-        return UserDefaults.standard.bool(forKey: ConstantKeys.kPremium)
+        return  false //UserDefaults.standard.bool(forKey: ConstantKeysUserDefaults.kPremium)
     }
     
     func getSubscriptionStatus(completion: ((Bool) -> Void)?) {
@@ -110,14 +109,16 @@ final class IAPManager {
     }
     
     private func checkEntitlements(_ entitlements: Purchases.EntitlementInfos) -> Bool{
-        if entitlements.all[ConstantKeys.kPremium]?.isActive == true {
-            UserDefaults.standard.set(true, forKey: ConstantKeys.kPremium)
+        if entitlements.all[ConstantKeysUserDefaults.kPremium]?.isActive == true {
+            UserDefaults.standard.set(true, forKey: ConstantKeysUserDefaults.kPremium)
             return true
         } else {
-            UserDefaults.standard.set(false, forKey: ConstantKeys.kPremium)
+            UserDefaults.standard.set(false, forKey: ConstantKeysUserDefaults.kPremium)
              return false
         }
     }
     
     
 }
+
+

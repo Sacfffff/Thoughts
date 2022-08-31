@@ -24,8 +24,8 @@ class ViewPostViewController: UIViewController {
         return tableView
     }()
 
-    init(post: BlogPost){
-        viewModel = ViewPostViewModel(post: post)
+    init(post: BlogPost, isOwnedByCurrentUser: Bool = false){
+        viewModel = ViewPostViewModel(post: post, isOwnedByCurrentUser: isOwnedByCurrentUser)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -53,6 +53,9 @@ class ViewPostViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
+        if !viewModel.isOwnedByCurrentUser {
+            viewModel.logPostViewed()
+        }
     }
 
 }

@@ -10,4 +10,7 @@ import Foundation
 enum ConstantKeysUserDefaults {
     static let kEmail = "email"
     static let kName = "name"
+    static let kPostViews = "post_views"
+    static let kPremium = "premium"
+    static let kDate = "date" 
 }

@@ -54,6 +54,7 @@ final class ProfileViewModel : ProfileViewModelProtocol {
             if success {
                 UserDefaults.standard.set(nil, forKey: ConstantKeysUserDefaults.kName)
                 UserDefaults.standard.set(nil, forKey: ConstantKeysUserDefaults.kEmail)
+                UserDefaults.standard.set(false, forKey: ConstantKeysUserDefaults.kPremium)
                 DispatchQueue.main.async {
                    present()
                 }

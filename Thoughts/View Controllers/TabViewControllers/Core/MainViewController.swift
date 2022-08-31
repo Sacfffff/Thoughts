@@ -125,6 +125,12 @@ extension MainViewController : UITableViewDataSource {
 extension MainViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        HapticksManager.shared.vibrateForSelection()
+        guard TrackPostViewsManager.shared.canViewPost else {
+            present(PayWallViewController(), animated: true)
+            return
+        }
+        
         navigationController?.pushViewController(ViewPostViewController(post: viewModel.posts[indexPath.row]), animated: true)
     }
 }

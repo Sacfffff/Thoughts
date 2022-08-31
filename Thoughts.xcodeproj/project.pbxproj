@@ -25,6 +25,7 @@
 		6C2EF11428B50FB40058B202 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11328B50FB40058B202 /* DatabaseManager.swift */; };
 		6C2EF11628B50FD20058B202 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11528B50FD20058B202 /* AuthManager.swift */; };
 		6C2EF11828B50FEA0058B202 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2EF11728B50FEA0058B202 /* StorageManager.swift */; };
+		6C44764928BF66D800C9393A /* HapticksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C44764828BF66D800C9393A /* HapticksManager.swift */; };
 		6C5D1F0928B7B71400097BEE /* PayWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F0828B7B71400097BEE /* PayWallViewController.swift */; };
 		6C5D1F0D28B7BA4300097BEE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F0C28B7BA4300097BEE /* MainViewModel.swift */; };
 		6C5D1F0F28B7BAC400097BEE /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5D1F0E28B7BAC400097BEE /* SignInViewModel.swift */; };
@@ -48,6 +49,7 @@
 		6C73720628BE40AE00DBAA4C /* PostPreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73720528BE40AE00DBAA4C /* PostPreviewModel.swift */; };
 		6C73720928BE4E9E00DBAA4C /* PostHeaderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73720828BE4E9E00DBAA4C /* PostHeaderModel.swift */; };
 		6C73720D28BE5EEC00DBAA4C /* ViewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C73720C28BE5EEC00DBAA4C /* ViewPostViewModel.swift */; };
+		6C756A9F28BF542100BCB39C /* TrackPostViewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C756A9E28BF542100BCB39C /* TrackPostViewsManager.swift */; };
 		F1FF4638A342BC9DD082713B /* Pods_Thoughts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,7 @@
 		6C2EF11528B50FD20058B202 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		6C2EF11728B50FEA0058B202 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		6C2EF11C28B510CD0058B202 /* .gitignore.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = .gitignore.md; sourceTree = "<group>"; };
+		6C44764828BF66D800C9393A /* HapticksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HapticksManager.swift; sourceTree = "<group>"; };
 		6C5D1F0828B7B71400097BEE /* PayWallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayWallViewController.swift; sourceTree = "<group>"; };
 		6C5D1F0C28B7BA4300097BEE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		6C5D1F0E28B7BAC400097BEE /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		6C73720528BE40AE00DBAA4C /* PostPreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPreviewModel.swift; sourceTree = "<group>"; };
 		6C73720828BE4E9E00DBAA4C /* PostHeaderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderModel.swift; sourceTree = "<group>"; };
 		6C73720C28BE5EEC00DBAA4C /* ViewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPostViewModel.swift; sourceTree = "<group>"; };
+		6C756A9E28BF542100BCB39C /* TrackPostViewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackPostViewsManager.swift; sourceTree = "<group>"; };
 		9C3AC9A524F4795DD13AC794 /* Pods-Thoughts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thoughts.debug.xcconfig"; path = "Target Support Files/Pods-Thoughts/Pods-Thoughts.debug.xcconfig"; sourceTree = "<group>"; };
 		B152976B95DB8B25F14912DB /* Pods_Thoughts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thoughts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -225,9 +229,11 @@
 			isa = PBXGroup;
 			children = (
 				6C2EF11128B50F980058B202 /* IAPManager.swift */,
+				6C44764828BF66D800C9393A /* HapticksManager.swift */,
 				6C2EF11328B50FB40058B202 /* DatabaseManager.swift */,
 				6C2EF11528B50FD20058B202 /* AuthManager.swift */,
 				6C2EF11728B50FEA0058B202 /* StorageManager.swift */,
+				6C756A9E28BF542100BCB39C /* TrackPostViewsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 			files = (
 				6C2EF10828B50EE00058B202 /* SighInViewController.swift in Sources */,
 				6C2EF11628B50FD20058B202 /* AuthManager.swift in Sources */,
+				6C756A9F28BF542100BCB39C /* TrackPostViewsManager.swift in Sources */,
 				6C73720628BE40AE00DBAA4C /* PostPreviewModel.swift in Sources */,
 				6C2EF0F928B50D040058B202 /* MainViewController.swift in Sources */,
 				6C5D1F1228B7C2E900097BEE /* PayWallHeaderView.swift in Sources */,
@@ -516,6 +523,7 @@
 				6C5D1F0F28B7BAC400097BEE /* SignInViewModel.swift in Sources */,
 				6C2D0D3C28BA1632005375D7 /* ProfileViewModel.swift in Sources */,
 				6C2D0D3728BA128D005375D7 /* ConstantKeysUserDefault.swift in Sources */,
+				6C44764928BF66D800C9393A /* HapticksManager.swift in Sources */,
 				6C2EF10A28B50EF40058B202 /* SighUpViewController.swift in Sources */,
 				6C6F20C028B917AE000015F9 /* PayWallViewModel.swift in Sources */,
 				6C2EF0E528B5055B0058B202 /* AppDelegate.swift in Sources */,

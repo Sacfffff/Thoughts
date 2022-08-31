@@ -23,6 +23,8 @@ final class SignInViewModel : SignInViewModelProtocol {
             return
         }
 
+        IAPManager.shared.getSubscriptionStatus(completion: nil)
+        
         AuthManager.shared.signIn(email: email, password: password) { success in
             guard success else { return }
             UserDefaults.standard.set(email, forKey: ConstantKeysUserDefaults.kEmail)

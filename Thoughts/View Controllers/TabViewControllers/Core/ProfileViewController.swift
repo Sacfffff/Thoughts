@@ -201,7 +201,28 @@ extension ProfileViewController : UITableViewDataSource {
 extension ProfileViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        navigationController?.pushViewController(ViewPostViewController(post: viewModel.posts[indexPath.row]), animated: true)
+        var isOwnerByCurrentUser : Bool = false
+        if let email  = UserDefaults.standard.string(forKey: ConstantKeysUserDefaults.kEmail) {
+            isOwnerByCurrentUser = email == viewModel.currentEmail
+        }
+        
+        HapticksManager.shared.vibrateForSelection()
+        
+        if !isOwnerByCurrentUser {
+            if TrackPostViewsManager.shared.canViewPost {
+                navigationController?.pushViewController(ViewPostViewController(
+                    post: viewModel.posts[indexPath.row],
+                    isOwnedByCurrentUser: isOwnerByCurrentUser), animated: true)
+            }
+            else {
+                present(PayWallViewController(), animated: true)
+            }
+        } else {
+            navigationController?.pushViewController(ViewPostViewController(
+                post: viewModel.posts[indexPath.row],
+                isOwnedByCurrentUser: isOwnerByCurrentUser), animated: true)
+        }
+       
     }
 }
 
